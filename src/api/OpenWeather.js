@@ -7,7 +7,7 @@ export default () =>{
     const FetchWeather = async (myCity) => {
         try{
             let response = await fetch(
-                'https://api.openweathermap.org/data/2.5/weather?q='+myCity+'&appid=7de7313c646f15c056b5daaeda647efa')
+                'https://api.openweathermap.org/data/2.5/weather?q='+myCity+'&units=metric&appid=7de7313c646f15c056b5daaeda647efa')
             let jsonResponse = await response.json()
             setResult(jsonResponse.main);
         }
