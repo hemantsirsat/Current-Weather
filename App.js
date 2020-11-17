@@ -4,9 +4,13 @@ import { StyleSheet, Text, View } from 'react-native';
 import SearchScreen from './src/screens/SearchScreen';
 
 export default function App() {
+  const [term, setTerm] = useState('')
   return (
     <View style={styles.container}>
-      <SearchScreen />
+      <SearchScreen 
+        term = {term}
+        onTermChange={newTerm=>setTerm(newTerm)}
+      />
       <StatusBar style="auto" />
     </View>
   );

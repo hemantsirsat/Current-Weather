@@ -1,12 +1,23 @@
-import React from 'react';
-import { TextInput, StyleSheet } from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, TextInput, StyleSheet } from 'react-native';
+import OpenWeather from '../api/OpenWeather';
 
-const SearchScreen = () => {
+const SearchScreen = ({ term, onTermChange }) => {
+    const [FetchWeather, result, errorMessage] = OpenWeather();
+
     return(
+        <View>
         <TextInput 
             style={styles.searchscreenStyle}
             placeholder="Search"
+            autoCapitalize='none'
+            autoCorrect={false}
+            value={term}
+            onChangeText={onTermChange}
+            onEndEditing={()=>FetchWeather(term)}
         />
+        {errorMessage ? <Text>{errorMessage}</Text> : null}
+        </View>
     );
 };
 
