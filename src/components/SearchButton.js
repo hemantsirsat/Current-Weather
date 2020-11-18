@@ -1,12 +1,13 @@
 import React from 'react';
 import { TouchableOpacity, Text, View, StyleSheet } from 'react-native';
 
-const SearchButton = ( navigation ) => {
+const SearchButton = ( navigation , { city }) => {
+    console.log(navigation)
     return(
         <View>
             <TouchableOpacity 
                 style={styles.touchableopacityStyle}
-                onPress={()=>navigation.props.navigate('Result')}
+               onPress={()=>navigation.props.navigate('Result')}
             >
                 <Text style={styles.textStyle}>Search</Text>
             </TouchableOpacity>
@@ -22,7 +23,7 @@ const styles = StyleSheet.create({
         borderColor:'#76009f',
         paddingHorizontal:30,
         paddingVertical:10,
-        borderRadius:20,
+        borderRadius:10,
     },
     textStyle:{
         fontSize:18,

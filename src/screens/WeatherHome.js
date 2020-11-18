@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { View, StyleSheet, Image } from 'react-native';
 import SearchBar from '../components/SearchBar';
-import SearchButton from '../components/SearchButton';
+
 
 const WeatherHome = ({ navigation })=> {
   const [term, setTerm] = useState('')
   const image = { uri:'https://blush-design.imgix.net/collections/cityscapes/banner-0.png?auto=format' }
-
+  console.log(term);
   return (
     <View style={styles.container}>
 
@@ -18,13 +18,9 @@ const WeatherHome = ({ navigation })=> {
       <SearchBar
         term = {term}
         onTermChange={newTerm=>setTerm(newTerm)}
+        navigation={navigation}
       />
-
-      <SearchButton 
-        city = {term}
-        props = { navigation }
-      />
-      
+        
     </View>
   );
 }

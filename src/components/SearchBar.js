@@ -1,7 +1,8 @@
 import React from 'react';
 import { View, TextInput, StyleSheet } from 'react-native';
+import SearchButton from '../components/SearchButton';
 
-const SearchScreen = ({ term, onTermChange }) => {
+const SearchBar = ({ term, onTermChange, navigation }) => {
     return(
         <View>
             <TextInput 
@@ -11,6 +12,10 @@ const SearchScreen = ({ term, onTermChange }) => {
                 autoCorrect={false}
                 value={term}
                 onChangeText={onTermChange}
+            />
+            <SearchButton 
+                city = {term}
+                props = { navigation }
             />
         </View>
     );
@@ -29,4 +34,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default SearchScreen;
+export default SearchBar;
