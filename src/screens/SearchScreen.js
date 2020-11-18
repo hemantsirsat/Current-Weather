@@ -29,7 +29,9 @@ const styles = StyleSheet.create({
         borderRadius:10,
         paddingLeft:10,
         paddingRight:10,
-        marginHorizontal:15
+        marginHorizontal:15,
+        justifyContent:'center',
+        marginTop:30
     },
     textStyle:{
         fontSize:20,
