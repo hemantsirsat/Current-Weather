@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, StyleSheet } from 'react-native';
 import OpenWeather from '../api/OpenWeather';
+import SearchButton from '../components/SearchButton';
 
 const SearchScreen = ({ term, onTermChange }) => {
-    const [FetchWeather, result, errorMessage] = OpenWeather();
-
     return(
         <View>
             <TextInput 
@@ -14,10 +13,10 @@ const SearchScreen = ({ term, onTermChange }) => {
                 autoCorrect={false}
                 value={term}
                 onChangeText={onTermChange}
-                onEndEditing={()=>FetchWeather(term)}
             />
-                {errorMessage ? <Text>{errorMessage}</Text> : null}
-                {result ? <Text style={styles.textStyle}>{result.temp}</Text> : null}
+            <SearchButton 
+                city = {term}
+            />
         </View>
     );
 };
