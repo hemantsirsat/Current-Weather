@@ -1,6 +1,5 @@
 import React from 'react';
 import { View, TextInput, StyleSheet } from 'react-native';
-import SearchButton from '../components/SearchButton';
 
 const SearchBar = ({ term, onTermChange, navigation }) => {
     return(
@@ -12,10 +11,8 @@ const SearchBar = ({ term, onTermChange, navigation }) => {
                 autoCorrect={false}
                 value={term}
                 onChangeText={onTermChange}
-            />
-            <SearchButton 
-                city = {term}
-                props = { navigation }
+                onEndEditing={()=>navigation.navigate('Result',{term})}
+              
             />
         </View>
     );

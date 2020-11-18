@@ -1,26 +1,24 @@
 import React, { useState } from 'react';
-import { View, StyleSheet, Image } from 'react-native';
+import { View, StyleSheet, Image, Text } from 'react-native';
 import SearchBar from '../components/SearchBar';
 
 
 const WeatherHome = ({ navigation })=> {
   const [term, setTerm] = useState('')
   const image = { uri:'https://blush-design.imgix.net/collections/cityscapes/banner-0.png?auto=format' }
-  console.log(term);
+
   return (
     <View style={styles.container}>
-
        <Image
         source={image}
         style={styles.imageStyle}
       />
-
       <SearchBar
+        navigation={navigation}
         term = {term}
         onTermChange={newTerm=>setTerm(newTerm)}
         navigation={navigation}
       />
-        
     </View>
   );
 }
