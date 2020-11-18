@@ -1,7 +1,5 @@
-import React, { useState } from 'react';
-import { View, Text, TextInput, StyleSheet } from 'react-native';
-import OpenWeather from '../api/OpenWeather';
-import SearchButton from '../components/SearchButton';
+import React from 'react';
+import { View, TextInput, StyleSheet } from 'react-native';
 
 const SearchScreen = ({ term, onTermChange }) => {
     return(
@@ -13,9 +11,6 @@ const SearchScreen = ({ term, onTermChange }) => {
                 autoCorrect={false}
                 value={term}
                 onChangeText={onTermChange}
-            />
-            <SearchButton 
-                city = {term}
             />
         </View>
     );
@@ -31,17 +26,6 @@ const styles = StyleSheet.create({
         marginHorizontal:15,
         justifyContent:'center',
         marginTop:30
-    },
-    textStyle:{
-        fontSize:20,
-        alignSelf:'center',
-        marginTop:50,
-        backgroundColor:'#EEE',
-        paddingHorizontal:80,
-        paddingTop:20,
-        width:200,
-        height:250,
-        borderRadius:25,
     }
 });
 

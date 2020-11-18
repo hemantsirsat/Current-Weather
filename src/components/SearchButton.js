@@ -1,14 +1,12 @@
 import React from 'react';
 import { TouchableOpacity, Text, View, StyleSheet } from 'react-native';
-import OpenWeather from '../api/OpenWeather';
 
-const SearchButton = ({ city }) => {
-    const [FetchWeather, result, errorMessage] = OpenWeather();
+const SearchButton = ( navigation ) => {
     return(
         <View>
             <TouchableOpacity 
                 style={styles.touchableopacityStyle}
-                onPress={()=>FetchWeather(city)}
+                onPress={()=>navigation.props.navigate('Result')}
             >
                 <Text style={styles.textStyle}>Search</Text>
             </TouchableOpacity>
