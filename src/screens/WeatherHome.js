@@ -10,7 +10,7 @@ const WeatherHome = ({ navigation })=> {
   return (
     <View style={styles.container}>
        <Image
-        source={image}
+        source={require('../../assets/home.png')}
         style={styles.imageStyle}
       />
       <SearchBar

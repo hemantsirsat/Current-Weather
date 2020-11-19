@@ -2,66 +2,70 @@ import React, { useEffect } from 'react';
 import { Text, View, StyleSheet, Image , ScrollView} from 'react-native';
 import OpenWeather from '../api/OpenWeather';
 import DetailsDisplay from '../components/DetailsDisplay';
+import { useFonts, ArchitectsDaughter_400Regular } from '@expo-google-fonts/architects-daughter';
 
 const ResultDisplay = ( {route} ) => {
     const city = route.params.term
     const [FetchWeather, result, errorMessage] = OpenWeather();
-    
-    const image = { uri:'https://image.freepik.com/free-vector/countryside-landscape-concept_52683-46393.jpg' }
+
+    let [fontLoaded, error] = useFonts({
+        ArchitectsDaughter_400Regular
+    });
 
     useEffect(()=>{
         FetchWeather(city)
     },[]);
 
-    console.log(result)
-    if(!result){
-        return null
-    }
     return(
         <View style={styles.viewStyle}>
             <Image
                 style={styles.imageStyle}
-                source={image} 
+                source={require('../../assets/result.png')} 
             />
-            <Text style={styles.cityStyle}>{city}</Text>
-            <ScrollView showsVerticalScrollIndicator={false}>
-                <DetailsDisplay 
-                    temperature={result.feels_like}
-                    icon='thermometer'
-                    unit= '&deg;C'
-                    name='Feels Like'
-                />
-                <DetailsDisplay 
-                    temperature={result.temp}
-                    icon='thermometer'
-                    unit= '&deg;C'
-                    name='Temperature'
-                />
-                <DetailsDisplay 
-                    temperature={result.temp_max}
-                    icon='thermometer'
-                    unit= '&deg;C'
-                    name= 'Temperature Max'
-                />
-                <DetailsDisplay 
-                    temperature={result.temp_min}
-                    icon='thermometer'
-                    unit= '&deg;C'
-                    name= 'Temperature Min'
-                />
-                <DetailsDisplay 
-                    temperature={result.humidity}
-                    icon='droplet'
-                    unit= '%'
-                    name= 'Humidity'
-                />
-                <DetailsDisplay 
-                    temperature={result.pressure}
-                    icon='wind'
-                    unit= 'hPa'
-                    name='Pressure'
-                />
-            </ScrollView>
+            {errorMessage ? <Text style={styles.errormessageStyle}>{errorMessage}</Text> : null}
+            {result ?
+                <View>
+                    <Text style={styles.cityStyle}>{city}</Text>
+                    <ScrollView showsVerticalScrollIndicator={false}>
+                        <DetailsDisplay 
+                            temperature={result.feels_like}
+                            icon='thermometer'
+                            unit= '&deg;C'
+                            name='Feels Like'
+                        />
+                        <DetailsDisplay 
+                            temperature={result.temp}
+                            icon='thermometer'
+                            unit= '&deg;C'
+                            name='Temperature'
+                        />
+                        <DetailsDisplay 
+                            temperature={result.temp_max}
+                            icon='thermometer'
+                            unit= '&deg;C'
+                            name= 'Temperature Max'
+                        />
+                        <DetailsDisplay 
+                            temperature={result.temp_min}
+                            icon='thermometer'
+                            unit= '&deg;C'
+                            name= 'Temperature Min'
+                        />
+                        <DetailsDisplay 
+                            temperature={result.humidity}
+                            icon='droplet'
+                            unit= '%'
+                            name= 'Humidity'
+                        />
+                        <DetailsDisplay 
+                            temperature={result.pressure}
+                            icon='wind'
+                            unit= 'hPa'
+                            name='Pressure'
+                        />
+                    </ScrollView>
+                </View>
+            : null }
         </View>
     );
 };
@@ -74,14 +78,15 @@ const styles = StyleSheet.create({
     },
     viewStyle:{
         flex:1,
-        marginHorizontal:10,
-        paddingBottom:10
+        paddingHorizontal:20,
+        paddingBottom:10,
+        backgroundColor:'#fff'
     },
     cityStyle:{
         alignSelf:'center',
         fontSize:24,
+        fontFamily:'ArchitectsDaughter_400Regular',
         padding:20,
-        fontWeight:'bold',
         textTransform:'uppercase'
 
     },
@@ -89,6 +94,13 @@ const styles = StyleSheet.create({
         alignSelf:'center',
         width:150,
         marginVertical:20,
+    },
+    errormessageStyle:{
+        textTransform:'uppercase',
+        alignSelf:'center',
+        paddingTop:30,
+        fontSize:30,
+        fontFamily:'ArchitectsDaughter_400Regular',
     }
 
 });

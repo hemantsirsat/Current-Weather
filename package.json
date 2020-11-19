@@ -8,10 +8,12 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "@expo-google-fonts/architects-daughter": "^0.1.0",
     "@react-native-community/masked-view": "0.1.10",
     "@react-navigation/native": "^5.8.9",
     "@react-navigation/stack": "^5.12.6",
     "axios": "^0.21.0",
+    "babel-plugin-module-resolver": "^4.0.0",
     "expo": "~39.0.2",
     "expo-status-bar": "~1.0.2",
     "feather-icons": "^4.28.0",
@@ -19,6 +21,7 @@
     "react-dom": "16.13.1",
     "react-native": "https://github.com/expo/react-native/archive/sdk-39.0.4.tar.gz",
     "react-native-gesture-handler": "~1.7.0",
+    "react-native-global-props": "^1.1.5",
     "react-native-reanimated": "~1.13.0",
     "react-native-safe-area-context": "3.1.4",
     "react-native-screens": "~2.10.1",
