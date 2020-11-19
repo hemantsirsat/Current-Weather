@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
-import { Text, View, StyleSheet, Image , ScrollView} from 'react-native';
+import { Text, View, StyleSheet } from 'react-native';
+import { useFonts, ArchitectsDaughter_400Regular } from '@expo-google-fonts/architects-daughter';
+import HeaderImageScrollView, { TriggeringView } from 'react-native-image-header-scroll-view';
 import OpenWeather from '../api/OpenWeather';
 import DetailsDisplay from '../components/DetailsDisplay';
-import { useFonts, ArchitectsDaughter_400Regular } from '@expo-google-fonts/architects-daughter';
 
 const ResultDisplay = ( {route} ) => {
     const city = route.params.term
@@ -18,54 +19,59 @@ const ResultDisplay = ( {route} ) => {
 
     return(
         <View style={styles.viewStyle}>
-            <Image
-                style={styles.imageStyle}
-                source={require('../../assets/result.png')} 
-            />
-            {errorMessage ? <Text style={styles.errormessageStyle}>{errorMessage}</Text> : null}
-            {result ?
+        <HeaderImageScrollView
+            showsVerticalScrollIndicator={false}
+            maxHeight={200}
+            minHeight={0}
+            headerImage={require("../../assets/result.png")}
+            >
                 <View>
-                    <Text style={styles.cityStyle}>{city}</Text>
-                    <ScrollView showsVerticalScrollIndicator={false}>
-                        <DetailsDisplay 
-                            temperature={result.feels_like}
-                            icon='thermometer'
-                            unit= '&deg;C'
-                            name='Feels Like'
-                        />
-                        <DetailsDisplay 
-                            temperature={result.temp}
-                            icon='thermometer'
-                            unit= '&deg;C'
-                            name='Temperature'
-                        />
-                        <DetailsDisplay 
-                            temperature={result.temp_max}
-                            icon='thermometer'
-                            unit= '&deg;C'
-                            name= 'Temperature Max'
-                        />
-                        <DetailsDisplay 
-                            temperature={result.temp_min}
-                            icon='thermometer'
-                            unit= '&deg;C'
-                            name= 'Temperature Min'
-                        />
-                        <DetailsDisplay 
-                            temperature={result.humidity}
-                            icon='droplet'
-                            unit= '%'
-                            name= 'Humidity'
-                        />
-                        <DetailsDisplay 
-                            temperature={result.pressure}
-                            icon='wind'
-                            unit= 'hPa'
-                            name='Pressure'
-                        />
-                    </ScrollView>
+                    <TriggeringView>
+                        {errorMessage ? <Text style={styles.errormessageStyle}>{errorMessage}</Text> : null}
+                        {result ?
+                            <View>
+                                <Text style={styles.cityStyle}>{city}</Text>
+                                <DetailsDisplay 
+                                    temperature={result.feels_like}
+                                    icon='thermometer'
+                                    unit= '&deg;C'
+                                    name='Feels Like'
+                                />
+                                <DetailsDisplay 
+                                    temperature={result.temp}
+                                    icon='thermometer'
+                                    unit= '&deg;C'
+                                    name='Temperature'
+                                />
+                                <DetailsDisplay 
+                                    temperature={result.temp_max}
+                                    icon='thermometer'
+                                    unit= '&deg;C'
+                                    name= 'Temperature Max'
+                                />
+                                <DetailsDisplay 
+                                    temperature={result.temp_min}
+                                    icon='thermometer'
+                                    unit= '&deg;C'
+                                    name= 'Temperature Min'
+                                />
+                                <DetailsDisplay 
+                                    temperature={result.humidity}
+                                    icon='droplet'
+                                    unit= '%'
+                                    name= 'Humidity'
+                                />
+                                <DetailsDisplay 
+                                    temperature={result.pressure}
+                                    icon='wind'
+                                    unit= 'hPa'
+                                    name='Pressure'
+                                />
+                            </View>
+                        : null }
+                    </TriggeringView>
                 </View>
-            : null }
+        </HeaderImageScrollView>
         </View>
     );
 };
@@ -78,9 +84,8 @@ const styles = StyleSheet.create({
     },
     viewStyle:{
         flex:1,
-        paddingHorizontal:20,
-        paddingBottom:10,
-        backgroundColor:'#fff'
+        backgroundColor:'#fff',
+        paddingTop:20
     },
     cityStyle:{
         alignSelf:'center',
