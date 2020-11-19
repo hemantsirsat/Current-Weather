@@ -99,8 +99,8 @@ const styles = StyleSheet.create({
         fontSize:24,
         fontFamily:'ArchitectsDaughter_400Regular',
         padding:20,
-        textTransform:'uppercase'
-
+        textTransform:'uppercase',
+        color:'#6A5ACD'
     },
     errormessageStyle:{
         textTransform:'uppercase',

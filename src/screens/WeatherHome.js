@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-import { View, StyleSheet, Image } from 'react-native';
+import { View, StyleSheet, Image, Text } from 'react-native';
 import SearchBar from '../components/SearchBar';
 
 
 const WeatherHome = ({ navigation })=> {
   const [term, setTerm] = useState('')
-  const image = { uri:'https://blush-design.imgix.net/collections/cityscapes/banner-0.png?auto=format' }
 
   return (
     <View style={styles.container}>
@@ -13,6 +12,7 @@ const WeatherHome = ({ navigation })=> {
         source={require('../../assets/home.png')}
         style={styles.imageStyle}
       />
+      <Text style={styles.textStyle}>Enter Name of City/Country.</Text>
       <SearchBar
         navigation={navigation}
         term = {term}
@@ -33,9 +33,15 @@ const styles = StyleSheet.create({
     height:150,
     padding:50,
     alignSelf:'center',
-    marginTop:50,
+    marginTop:100,
     borderRadius:10,
     shadowColor:'#DEDEDE',
+  },
+  textStyle:{
+    marginHorizontal:15,
+    marginTop:20,
+    fontSize:13,
+    color:'#778899'
   }
 });
 

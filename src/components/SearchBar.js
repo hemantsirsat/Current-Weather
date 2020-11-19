@@ -5,7 +5,7 @@ const SearchBar = ({ term, onTermChange, navigation }) => {
     return(
         <View>
             <TextInput 
-                style={styles.searchscreenStyle}
+                style={styles.searchbarStyle}
                 placeholder="Search"
                 autoCapitalize='none'
                 autoCorrect={false}
@@ -19,7 +19,7 @@ const SearchBar = ({ term, onTermChange, navigation }) => {
 };
 
 const styles = StyleSheet.create({
-    searchscreenStyle:{
+    searchbarStyle:{
         backgroundColor:'#DEDEDE',
         padding:5,
         borderRadius:10,
@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
         paddingRight:10,
         marginHorizontal:15,
         justifyContent:'center',
-        marginTop:30
+        marginTop:5
     }
 });
 

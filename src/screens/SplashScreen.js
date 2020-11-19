@@ -11,10 +11,10 @@ const SplashScreen = ({ navigation })=> {
         <View style={styles.viewStyle}>
             <ImageBackground
                 style={styles.splashStyle}
-                source={require('../../assets/splash.png')}
+                source={require('../../assets/SplashScreen.png')}
             >
             </ImageBackground>
-            <Text style={styles.textStyle}>Weather Information At Your FingerTips</Text>
+            <Text style={styles.textStyle}>Weather Information At Your Fingertips</Text>
         </View>
     );
 };
@@ -34,6 +34,7 @@ const styles = StyleSheet.create({
         fontSize:20,
         paddingTop:20,
         alignSelf:'center',
+        color:'#6A5ACD'
     }
 });
 
