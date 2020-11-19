@@ -5,7 +5,7 @@ const SplashScreen = ({ navigation })=> {
 
     setTimeout(()=>{
       navigation.replace('Home');   
-    },2000)
+    },1000)
 
     return(
         <View style={styles.viewStyle}>
@@ -34,7 +34,8 @@ const styles = StyleSheet.create({
         fontSize:20,
         paddingTop:20,
         alignSelf:'center',
-        color:'#6A5ACD'
+        color:'#6A5ACD',
+        fontSize:12
     }
 });
 

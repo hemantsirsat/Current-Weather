@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { View, StyleSheet, Image, Text } from 'react-native';
 import SearchBar from '../components/SearchBar';
 
-
 const WeatherHome = ({ navigation })=> {
   const [term, setTerm] = useState('')
 
@@ -40,8 +39,9 @@ const styles = StyleSheet.create({
   textStyle:{
     marginHorizontal:15,
     marginTop:20,
-    fontSize:13,
-    color:'#778899'
+    fontSize:10,
+    color:'#6A5ACD',
+    textTransform:'uppercase'
   }
 });
 
