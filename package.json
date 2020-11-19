@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@expo-google-fonts/architects-daughter": "^0.1.0",
+    "@expo-google-fonts/boogaloo": "^0.1.0",
     "@react-native-community/masked-view": "0.1.10",
     "@react-navigation/native": "^5.8.9",
     "@react-navigation/stack": "^5.12.6",

@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
     },
     viewvalueStyle:{
         position:'absolute',
-        right:50,
+        right:35,
     },  
     textheaderStyle:{
         fontSize:15,

@@ -54,13 +54,13 @@ const ResultDisplay = ( {route} ) => {
                                         temperature={result.temp_max}
                                         icon='thermometer'
                                         unit= '&deg;C'
-                                        name= 'Temperature Max'
+                                        name= 'Temperature Maximum'
                                     />
                                     <DetailsDisplay 
                                         temperature={result.temp_min}
                                         icon='thermometer'
                                         unit= '&deg;C'
-                                        name= 'Temperature Min'
+                                        name= 'Temperature Mininimum'
                                     />
                                     <DetailsDisplay 
                                         temperature={result.humidity}
