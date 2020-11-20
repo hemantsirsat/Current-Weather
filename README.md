@@ -8,7 +8,7 @@ Information is gathered using Open Weather API.
 # Output
 
 # Splash Screen
-![](output/splash.png)
+![](output/splash.png | width=10)
 
 # Home Screen
 ![](output/home.png)
