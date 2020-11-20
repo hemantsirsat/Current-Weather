@@ -4,9 +4,9 @@
     "slug": "weather",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/favicon.png",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/SplashScreen.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -17,18 +17,21 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.weather"
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#FFFFFF",
-        "package": "Weather",
-        "versionCode": 0.1
-      }
+        "foregroundImage": "./assets/favicon.png",
+        "backgroundColor": "#FFFFFF"
+      },
+      "versionCode": 1,
+      "package": "com.weather"
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "description": "A cross platform application for getting weather information of any city/country. ",
+    "githubUrl": "https://github.com/hemantsirsat/Current-Weather"
   }
 }
