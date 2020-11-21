@@ -36,6 +36,7 @@ const styles = StyleSheet.create({
     textvalueStyle:{
         fontSize:15,
         padding:5,
+        paddingTop:10,
         fontWeight:'bold',
         left:25
         
